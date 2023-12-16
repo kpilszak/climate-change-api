@@ -1,4 +1,4 @@
-<h1 align="right">Climate Change API 🌎🌍🌏</h1><br>
+<h1 align="right">WIP: Climate Change API 🌎🌍🌏</h1><br>
 
 An API showing all the latest Climate Change News around the world.  
 
