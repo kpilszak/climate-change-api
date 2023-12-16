@@ -16,6 +16,7 @@ Providing comprehensive information, the API allows clients to access both all-e
 ## Technologies
 Project is created with:
 - **JavaScript:** The heart and soul of the project, enabling seamless interaction with web content.
+- **Node.js and Express.js:** Providing a robust server-side environment for optimal performance.
 - **axios:** Fueling the HTTP requests for fetching web data.  
 - **cheerio:** Simplifying HTML parsing for effective data extraction.  
 
