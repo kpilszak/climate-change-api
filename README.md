@@ -16,7 +16,8 @@ Providing comprehensive information, the API allows clients to access both all-e
 ## Technologies
 Project is created with:
 - **JavaScript:** The heart and soul of the project, enabling seamless interaction with web content.
-- **axios:** Fueling the HTTP requests for fetching web data.
+- **axios:** Fueling the HTTP requests for fetching web data.  
+- **cheerio:** Simplifying HTML parsing for effective data extraction.  
 
 ## Usage
 1. Explore the app locally by pulling the changes.
