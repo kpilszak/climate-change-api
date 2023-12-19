@@ -5,14 +5,27 @@ const cheerio = require('cheerio');
 
 const app = express();
 
+const newspapers = [
+    {
+        name: 'thetimes',
+        address: 'https://thetimes.co.uk/environment/climate-change',
+        base: ''
+    },
+    {
+        name: 'guardian',
+        address: 'https://theguardian.com/environment/climate-crisis',
+        base: ''
+    },
+    {
+        name: 'telegraph',
+        address: 'https://telegraph.co.uk/climate-change',
+        base: 'https://www.telegraph.co.uk'
+    }
+];
 const articles = [];
 
-app.get('/', (req, res) => {
-    res.json('Welcome to Climate Change News API');
-});
-
-app.get('/news', (req, res) => {
-    axios.get('https://theguardian.com/environment/climate-crisis')
+newspapers.forEach(newspaper => {
+    axios.get(newspaper.address)
         .then((response) => {
             const html = response.data;
             const $ = cheerio.load(html);
@@ -21,11 +34,20 @@ app.get('/news', (req, res) => {
                 const url = $(this).attr('href');
                 articles.push({
                     title,
-                    url
+                    url: newspaper.base + url,
+                    source: newspaper.name
                 })
             });
             res.json(articles);
         }).catch((err) => console.log(err));
+});
+
+app.get('/', (req, res) => {
+    res.json('Welcome to Climate Change News API');
+});
+
+app.get('/news', (req, res) => {
+    res.json(articles);
 });
 
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
